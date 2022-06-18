@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 # Root directory of the project
 
-ROOT_DIR = "H:/PythonProjects/Rootfolder"
+ROOT_DIR = "/content/mask-RNN/Rootfolder"
 
 # Import Mask RCNN
 sys.path.append(ROOT_DIR)  # To find local version of the library
@@ -84,9 +84,9 @@ class CustomDataset(utils.Dataset):
         # }
         # We mostly care about the x and y coordinates of each region
         if(subset=="train"):
-            annotations1 = json.load(open('H:/PythonProjects/Rootfolder/dataset/train/RCNN_json.json'))
+            annotations1 = json.load(open('/content/mask-RNN/Rootfolder/dataset/train/RCNN_json.json'))
         else:
-            annotations1 = json.load(open('H:/PythonProjects/Rootfolder/dataset/val/RCNN_json.json'))
+            annotations1 = json.load(open('/content/mask-RNN//Rootfolder/dataset/val/RCNN_json.json'))
         # print(annotations1)
         annotations = list(annotations1.values())  # don't need the dict keys
 
@@ -173,7 +173,7 @@ def train(model):
 
     # Validation dataset
     dataset_val = CustomDataset()
-    dataset_val.load_custom("H:/PythonProjects/Rootfolder/dataset", "val")
+    dataset_val.load_custom("/content/mask-RNN/Rootfolder/dataset", "val")
     dataset_val.prepare()
 
     # *** This training schedule is an example. Update to your needs ***
